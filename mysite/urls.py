@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from home.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls'))
+    path('', IndexView.as_view(), name='index'),
 ]
 urlpatterns += staticfiles_urlpatterns()
